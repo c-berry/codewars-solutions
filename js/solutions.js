@@ -87,3 +87,52 @@ const duplicateEncode2 = s => s
 
 // console.log(duplicateEncode2("cool"))
 /////////////////////////////////////////////////////////////
+
+// replace instances of ['A', 'T', 'C', 'G'] with ['T', 'A', 'G', 'C'] =>
+function DNAStrand(str){
+    let newStr = "";
+    for (let i = 0; i < str.length; i++){
+        if(str[i] === "A") {
+            newStr += "T";
+        }
+        if (str[i] === "T") {
+            newStr += "A";
+        }
+        if (str[i] === "C") {
+            newStr += "G";
+        }
+        if (str[i] === "G") {
+            newStr += "C";
+        }
+    }
+    return newStr;
+}
+// console.log(DNAStrand("ATTGC"));
+
+//using map and ES6 =>
+const pairs = {'A':'T', 'T':'A' ,'C':'G', 'G':'C'};
+
+let DNAStrand2 = (dna) => dna.split('').map((v) => pairs[v]).join('');
+// console.log(DNAStrand2("ATTGC"));
+
+//regex solution for review =>
+DNAStrand3.pairs = { A: 'T', T: 'A', C: 'G', G: 'C' }
+
+function DNAStrand3(dna) {
+    return dna.replace(/./g, function(c) {
+        return DNAStrand3.pairs[c]
+    });
+}
+// console.log(DNAStrand2("ATTGC"));
+/////////////////////////////////////////////////////////////
+
+//take non-negative integer and rearrange from highest to lowest =>
+function descendingOrder(num){
+    return parseInt(num.toString()
+        .split("")
+        .sort()
+        .reverse()
+        .join(""));
+}
+// console.log(descendingOrder("12345"));
+/////////////////////////////////////////////////////////////
