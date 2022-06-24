@@ -78,7 +78,7 @@ function duplicateEncode(str){
 }
 // console.log(duplicateEncode('cool'));
 
-//for review: using map and ternary =>
+//short solution found online for review using map and ternary =>
 const duplicateEncode2 = s => s
     .toLowerCase()
     .split``
@@ -115,7 +115,7 @@ const pairs = {'A':'T', 'T':'A' ,'C':'G', 'G':'C'};
 let DNAStrand2 = (dna) => dna.split('').map((v) => pairs[v]).join('');
 // console.log(DNAStrand2("ATTGC"));
 
-//for review: regex solution =>
+//regex solution for review =>
 DNAStrand3.pairs = { A: 'T', T: 'A', C: 'G', G: 'C' }
 
 function DNAStrand3(dna) {
@@ -135,82 +135,4 @@ function descendingOrder(num){
         .join(""));
 }
 // console.log(descendingOrder("12345"));
-/////////////////////////////////////////////////////////////
-
-//return the sum of the two lowest nums from an array of nums =>
-function sumTwoSmallestNumbers(numbers) {
-    let numsSorted = numbers.sort(function (a, b) {
-        return a - b;
-    });
-    return numsSorted[0] + numsSorted[1];
-}
-// console.log(sumTwoSmallestNumbers([19, 5, 42, 2, 77]));
-
-//arrow function =>
-function sumTwoSmallestNumbers2(numbers) {
-    let numsSorted = numbers.sort((a, b) => a - b);
-    return numsSorted[0] + numsSorted[1];
-}
-// console.log(sumTwoSmallestNumbers2([19, 5, 42, 2, 77]));
-
-// for review: for loop and most efficient solution not using sort =>
-function sumTwoSmallestNumbers3(numbers) {
-    let min = Number.MAX_SAFE_INTEGER;
-    let secondMin = Number.MAX_SAFE_INTEGER;
-    let n;
-    for (let i = 0; i < numbers.length; i++) {
-        n = numbers[i];
-        if(n < min) {
-            secondMin = min;
-            min = n;
-        } else if( n < secondMin ) {
-            secondMin = n;
-        }
-    }
-    return min + secondMin;
-}
-// console.log(sumTwoSmallestNumbers3([19, 5, 42, 2, 77]));
-/////////////////////////////////////////////////////////////
-
-// Given two integers a and b, which can be pos or neg, find the sum of all the integers between and including them and return it. If the two numbers are equal return a or b
-function getSum(a, b){
-    let max = Math.max(a, b);
-    let min = Math.min(a, b);
-    let sum = 0;
-    for(min; min <= max; min++){
-        sum += min;
-    }
-    return sum;
-}
-// console.log(getSum(1, 3));
-
-// Guass Summation =>
-const getSum2 = (a, b) => {
-    let min = Math.min(a, b),
-        max = Math.max(a, b);
-    return (max - min + 1) * (min + max) / 2;
-}
-// console.log(getSum2(1, 3));
-/////////////////////////////////////////////////////////////
-
-// given a string of words, return the length of the shortest word(s).
-// string will never be empty, and you do not need to account for different data types.
-function findShort(str){
-    let strArr = str.split(" ");
-    let wordLength = Number.MAX_SAFE_INTEGER;
-    for(let i = 0; i < strArr.length; i++){
-        if (wordLength > strArr[i].length){
-            wordLength = strArr[i].length;
-        }
-    }
-    return wordLength;
-}
-// console.log(findShort("Let's travel abroad shall we"));
-
-//for review: using apply and map =>
-function findShort2(s){
-    return Math.min.apply(null, s.split(' ').map(w => w.length));
-}
-// console.log(findShort2("Let's travel abroad shall we"));
-
 /////////////////////////////////////////////////////////////
