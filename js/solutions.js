@@ -1,5 +1,8 @@
 "use strict"; //Codewars solutions:
 
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
 //remove vowels from string =>
 //this works in console log but fails testing =>
 function disemvowel(str) {
@@ -16,7 +19,9 @@ function disemvowel2(str) {
     return str.replace(/[aeiou]/gi, '');
 }
 // console.log(disemvowel2("hElloO"));
-////////////////////////////////////////////////////////////
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 
 //capitalize first letter in string =>
 function toJadenCase(str) {
@@ -57,7 +62,9 @@ String.prototype.toJadenCase5 = function () {
     return this.replace(/(^|\s)[a-z]/g, function(x){ return x.toUpperCase(); });
 };
 // console.log(str.toJadenCase5());
-/////////////////////////////////////////////////////////////
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 
 //replace letters in string with '(' if unique and ')' if duplicated =>
 function duplicateEncode(str){
@@ -85,8 +92,10 @@ const duplicateEncode2 = s => s
     .map((letter, _, word) => word.indexOf(letter) === word.lastIndexOf(letter) ? '(' : ')')
     .join``;
 
-// console.log(duplicateEncode2("cool"))
-/////////////////////////////////////////////////////////////
+// console.log(duplicateEncode2("cool"));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 
 // replace instances of ['A', 'T', 'C', 'G'] with ['T', 'A', 'G', 'C'] =>
 function DNAStrand(str){
@@ -124,7 +133,9 @@ function DNAStrand3(dna) {
     });
 }
 // console.log(DNAStrand2("ATTGC"));
-/////////////////////////////////////////////////////////////
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 
 //take non-negative integer and rearrange from highest to lowest =>
 function descendingOrder(num){
@@ -135,7 +146,9 @@ function descendingOrder(num){
         .join(""));
 }
 // console.log(descendingOrder("12345"));
-/////////////////////////////////////////////////////////////
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 
 //return the sum of the two lowest nums from an array of nums =>
 function sumTwoSmallestNumbers(numbers) {
@@ -170,7 +183,9 @@ function sumTwoSmallestNumbers3(numbers) {
     return min + secondMin;
 }
 // console.log(sumTwoSmallestNumbers3([19, 5, 42, 2, 77]));
-/////////////////////////////////////////////////////////////
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 
 // Given two integers a and b, which can be pos or neg, find the sum of all the integers between and including them and return it. If the two numbers are equal return a or b
 function getSum(a, b){
@@ -191,7 +206,9 @@ const getSum2 = (a, b) => {
     return (max - min + 1) * (min + max) / 2;
 }
 // console.log(getSum2(1, 3));
-/////////////////////////////////////////////////////////////
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 
 // given a string of words, return the length of the shortest word(s).
 // string will never be empty, and you do not need to account for different data types.
@@ -213,4 +230,35 @@ function findShort2(s){
 }
 // console.log(findShort2("Let's travel abroad shall we"));
 
-/////////////////////////////////////////////////////////////
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+//take each word in a string and return with first letter moved to end of each word and adding "ay"
+function pigIt(str){
+    let pigLatin = [];
+    let strArray = str.split(" ");
+    for(let i = 0; i < strArray.length; i ++){
+        let splitStr = strArray[i].split("");
+        let firstLetter = splitStr[0];
+        splitStr.shift();
+        let removed = splitStr.join("");
+        pigLatin.push(removed + firstLetter + "ay");
+    }
+    return pigLatin.join(" ");
+}
+// console.log(pigIt("Pig latin is cool"));
+
+//for review: regex accounting for punctuation =>
+function pigIt2(str) {
+    const arr = str.split(' ')
+    return arr
+        .map((word) => {
+            return word.match(/[A-z]/i)
+                ? `${word.substr(1)}${word.substr(0, 1)}ay`
+                : word
+        })
+        .join(' ')
+}
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
