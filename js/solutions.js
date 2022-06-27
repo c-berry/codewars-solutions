@@ -262,3 +262,67 @@ function pigIt2(str) {
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+// Write a function, which takes a non-negative integer between 0 and 359999 (seconds) as input and returns the time in a human-readable format (HH:MM:SS)
+// if less than 0 or more than 359999 we’ll return null =>
+function humanReadable(seconds) {
+    if (seconds < 0 || seconds > 359999) {
+        return null;
+    }
+    if (seconds === 0) {
+        return '00:00:00';
+    }
+    let hours = Math.floor(seconds / 3600)
+    seconds = seconds - (hours * 3600)
+    if (hours < 10) {
+        hours = '0' + hours;
+    }
+    let minutes = Math.floor(seconds / 60);
+    seconds = seconds - (minutes * 60);
+    if (minutes < 10) {
+        minutes = '0' + minutes;
+    }
+    if(seconds < 10) {
+        seconds = '0' + seconds;
+    }
+    return hours + ":" + minutes + ":" + seconds;
+    // return `${hours}:${minutes}:${seconds}`;
+}
+// console.log(humanReadable(45296));
+// console.log(humanReadable(98776));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+//return maximum sum of contiguous subsequence in an array of numbers =>
+//Kadane’s algorithm (https://en.wikipedia.org/wiki/Maximum_subarray_problem) =>
+const maxSequence = function(arr){
+    let sum = 0;
+    let maxSum = 0;
+    for(let i = 0; i < arr.length; i++){
+        if (arr.length === 0) {
+            return 0;
+        }
+        sum = Math.max(arr[i], sum + arr[i]);
+        maxSum = Math.max(maxSum, sum);
+    }
+    return maxSum;
+}
+
+//using forEach =>
+function maxSequence2(arr){
+    let sum = 0;
+    let maxSum = 0;
+    if(arr.length === 0){
+        return 0;
+    }
+    arr.forEach(n => {
+        sum = Math.max(n, sum + n);
+        maxSum = Math.max(maxSum, sum);
+    });
+    return maxSum;
+}
+
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
