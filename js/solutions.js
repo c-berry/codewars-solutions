@@ -323,6 +323,55 @@ function maxSequence2(arr){
     return maxSum;
 }
 
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+// function that when given a URL as a string, parses out just the domain name and returns it as a string =>
+function domainName(url){
+    //each conditional checks url string for beginning format to decide where to begin substring:
+    if (url.includes("https") && url.includes("www")){
+        let newUrl = url.substring(12);
+        //find where the domain name ends and use substring to remove excess characters:
+        let endOfDomain = newUrl.indexOf(".");
+        return newUrl.substring(0, endOfDomain);
+    }
+    if (url.includes("http") && url.includes("www")){
+        let newUrl = url.substring(11);
+        let endOfDomain = newUrl.indexOf(".");
+        return newUrl.substring(0, endOfDomain);
+    }
+    if (url.includes("https")){
+        let newUrl = url.substring(8);
+        let endOfDomain = newUrl.indexOf(".");
+        return newUrl.substring(0, endOfDomain);
+    }
+    if (url.includes("http")){
+        let newUrl = url.substring(7);
+        let endOfDomain = newUrl.indexOf(".");
+        return newUrl.substring(0, endOfDomain);
+    }
+    if (url.includes("www")){
+        let newUrl = url.substring(4);
+        let endOfDomain = newUrl.indexOf(".");
+        return newUrl.substring(0, endOfDomain);
+    } else {
+        //if url begins with domain name just remove excess characters from end:
+        let endOfDomain = url.indexOf(".");
+        return url.substring(0, endOfDomain);
+    }
+}
+// console.log(domainName("http://google.com"));
+// console.log("answer: " + domainName("https://www.43m8d3v7egof6lxtw7eiv3uim7sp.it/img/"));
+// console.log("answer: " + domainName("www.xakep.ru"));
+
+//using replace and split =>
+function domainName2(url){
+    url = url.replace("https://", '');
+    url = url.replace("http://", '');
+    url = url.replace("www.", '');
+    return url.split('.')[0];
+}
+// console.log("answer: " + domainName("https://www.43m8d3v7egof6lxtw7eiv3uim7sp.it/img/"));
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
