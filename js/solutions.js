@@ -375,3 +375,70 @@ function domainName2(url){
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+//convert decimeters to feet and inches =>
+function convertHeight(units) {
+    //convert to inches:
+    let decimeterToInch = units * 3.93701;
+    //convert inches to feet:
+    let totalFeet = decimeterToInch * 0.083333;
+    //retrieve feet without excess
+    let feetArr = totalFeet.toString().split(".");
+    let feet = feetArr[0];
+
+    //convert remainder of partial foot to inches:
+    let inches2 = "0." + feetArr[1];
+    let inchesLeftover = parseFloat(inches2) * 12;
+
+    //return converted size to correct format:
+    if (inchesLeftover >= 10 && feet >= 1) {
+        let inches = inchesLeftover.toString().substring(0, 2);
+        return feet + "\'" + inches + "\"";
+    }
+    if (inchesLeftover < 10 && feet >= 1) {
+        let inches = inchesLeftover.toString().substring(0, 1);
+        return feet + "\'" + inches + "\"";
+    }
+    //if less than a foot return only inches:
+    if (inchesLeftover >= 10 && feet < 1) {
+        let inches = inchesLeftover.toString().substring(0, 2);
+        return inches + " inches";
+    }
+    if (inchesLeftover < 10 && feet < 1) {
+        let inches = inchesLeftover.toString().substring(0, 1);
+        return inches + " inches";
+    }
+}
+// console.log("Test: " + convertHeight(17));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+// Write an algorithm that takes an array and moves all the zeros to the end, preserving the order of the other elements.
+function moveZeros(arr) {
+    let newArr = [];
+    let zeroArr = [];
+    for(let i = 0; i < arr.length; i++) {
+        if (arr[i] !== 0) {
+            newArr.push(arr[i]);
+        }
+        if (arr[i] === 0) {
+            zeroArr.push(arr[i]);
+        }
+    }
+    for(let i = 0; i < zeroArr.length; i++) {
+        newArr.push(zeroArr[i]);
+    }
+    return newArr;
+}
+// console.log(moveZeros([false,1,0,1,2,0,1,3,"a"]));
+
+// for review: ES6 =>
+const moveZeros2 = function (arr) {
+    return arr.filter(function(x) {return x !== 0}).concat(arr.filter(function(x) {return x === 0;}));
+}
+// console.log(moveZeros2([false,1,0,1,2,0,1,3,"a"]));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
