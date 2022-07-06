@@ -442,3 +442,61 @@ const moveZeros2 = function (arr) {
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 
+// takes a string input, and returns the first character that is not repeated anywhere in the string =>
+function firstNonRepeatingLetter(s) {
+    let letters = s.split("");
+    let result = "";
+    for(let i = 0; i < letters.length; i++) {
+        let counter = 0;
+
+        for(let j = 0; j < letters.length; j++) {
+            if (letters[i].toLowerCase() === letters[j].toLowerCase()){
+                counter += 1;
+            }
+        }
+        if (counter < 2){
+            result = letters[i];
+            break;
+        }
+    }
+    return result;
+}
+// console.log(firstNonRepeatingLetter("sTress"));
+
+// for review: using indexOf
+function firstNonRepeatingLetter2(s) {
+    let t = s.toLowerCase();
+    for (let x = 0; x < t.length; x++)
+        if(t.indexOf(t[x]) === t.lastIndexOf(t[x]))
+            return s[x];
+    return "";
+}
+// console.log(firstNonRepeatingLetter2("sTress"));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+//for review: regex password validation
+function validate(password) {
+    return /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])[A-Za-z0-9]{6,}$/.test(password);
+}
+//explanation:
+// (?=.*?[A-Z])    # Lookahead to make sure there is at least one upper case letter
+// (?=.*?[a-z])    # Lookahead to make sure there is at least one lower case letter
+// (?=.*?[0-9])    # Lookahead to make sure there is at least one number
+// [A-Za-z0-9]{6,} # Make sure there are at least 6 characters of [A-Za-z0-9]
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+//using .every checks each string against alphabet variable returning true or false for each iteration, and a final return of true if all iterations are true, or false if any iteration returns false =>
+function isPangram(string) {
+    let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split("");
+    string = string.toLowerCase();
+    return alphabet.every(x => string.includes(x));
+}
+console.log(isPangram("Test"));
+console.log(isPangram("abcd efgh ijkl mnop qrst uvwx yz"));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
