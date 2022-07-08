@@ -500,3 +500,29 @@ console.log(isPangram("abcd efgh ijkl mnop qrst uvwx yz"));
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+//function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits =>
+function duplicateCount(text){
+    //turn string into array of chars
+    let textArr = text.toLowerCase().split("");
+    //create new array to hold duplicate chars
+    let textChars = [];
+    //loop thru chars comparing first instance of a char to the last index of that char
+    for (let i = 0; i < textArr.length; i++){
+        if (textArr.indexOf(textArr[i]) !== textArr.lastIndexOf(textArr[i])) {
+            //if char is repeated and not already in our new array of duplicates, add it to new array
+            if (!textChars.includes(textArr[i])){
+                textChars.push(textArr[i]);
+            }
+        }
+    }
+    //return length of new array that contains one instance of all duplicate chars in original string
+    return textChars.length;
+}
+console.log("TEST 1: " + duplicateCount("abcde"));
+console.log("TEST 2: " + duplicateCount("aabbcde"));
+console.log("TEST 3: " + duplicateCount("Indivisibility"));
+console.log("TEST 4: " + duplicateCount("Indivisibilities"));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
