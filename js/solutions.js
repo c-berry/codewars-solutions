@@ -495,8 +495,8 @@ function isPangram(string) {
     string = string.toLowerCase();
     return alphabet.every(x => string.includes(x));
 }
-console.log(isPangram("Test"));
-console.log(isPangram("abcd efgh ijkl mnop qrst uvwx yz"));
+// console.log(isPangram("Test"));
+// console.log(isPangram("abcd efgh ijkl mnop qrst uvwx yz"));
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
@@ -519,10 +519,76 @@ function duplicateCount(text){
     //return length of new array that contains one instance of all duplicate chars in original string
     return textChars.length;
 }
-console.log("TEST 1: " + duplicateCount("abcde"));
-console.log("TEST 2: " + duplicateCount("aabbcde"));
-console.log("TEST 3: " + duplicateCount("Indivisibility"));
-console.log("TEST 4: " + duplicateCount("Indivisibilities"));
+// console.log("TEST 1: " + duplicateCount("abcde"));
+// console.log("TEST 2: " + duplicateCount("aabbcde"));
+// console.log("TEST 3: " + duplicateCount("Indivisibility"));
+// console.log("TEST 4: " + duplicateCount("Indivisibilities"));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+//reverse string =>
+function solution(str){
+    return str.split("").reverse().join("");
+}
+// console.log(solution("hello"));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+// square every digit of a number and concatenate them =>
+function squareDigits(num){
+    let numArr = num.toString().split("");
+    let numArrSquared = [];
+    for (let i = 0; i < numArr.length; i++) {
+        numArrSquared.push(numArr[i] * numArr[i]);
+    }
+    return numArrSquared.join("");
+}
+// console.log("hi");
+// console.log(squareDigits(133));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+//determine if a number is a perfect square =>
+const isSquare = function(n){
+    if (n === 0) {
+        return true;
+    }
+    for (let i = 0; i <= n; i++) {
+        let test = i * i;
+        if (test === n) {
+            return true;
+        }
+    }
+    return false;
+}
+// console.log(isSquare(0));
+// console.log(isSquare(9));
+
+//use sqrt method to get square root of num and if that resulting number divided by 1 has no remainder it is a perfect square:
+function isSquare2(n) {
+    return Math.sqrt(n) % 1 === 0;
+}
+// console.log(isSquare2(0));
+// console.log(isSquare2(9));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+//takes as argument a sequence and returns a list of items without any elements with the same value next to each other and preserving the original order of elements =>
+const uniqueInOrder = function(iterable){
+    let newArr = [];
+    for(let i = 0; i < iterable.length; i ++) {
+        if (iterable[i] !== iterable[i - 1]) {
+            newArr.push(iterable[i]);
+        }
+    }
+    return newArr;
+}
+// console.log(uniqueInOrder(["A", "A", "a", "B", "C", "A", "D", "D"]));
+// console.log(uniqueInOrder([1, 2, 1, 2, 2, 2]));
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
