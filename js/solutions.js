@@ -528,10 +528,10 @@ function duplicateCount(text){
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 
 //reverse string =>
-function solution(str){
+function reverseString(str){
     return str.split("").reverse().join("");
 }
-// console.log(solution("hello"));
+// console.log(reverseString("hello"));
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
@@ -589,6 +589,44 @@ const uniqueInOrder = function(iterable){
 }
 // console.log(uniqueInOrder(["A", "A", "a", "B", "C", "A", "D", "D"]));
 // console.log(uniqueInOrder([1, 2, 1, 2, 2, 2]));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+// returns true if the first argument(string) passed in ends with the 2nd argument(string) =>
+function checkEndOfStr(str, ending){
+    const endingSize = ending.length;
+    return str.substring(str.length - endingSize) === ending;
+}
+// console.log(checkEndOfStr("abcd", "cd"));
+
+function checkEndOfStr2(str, ending){
+    return str.endsWith(ending);
+}
+// console.log(checkEndOfStr2("abcd", "cd"));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+//return smallest number in the array =>
+class SmallestIntegerFinder {
+    findSmallestInt(args) {
+        let smallest = args[0];
+        for (let i = 0; i < args.length; i++) {
+            if (args[i] < smallest) {
+                smallest = args[i];
+            }
+        }
+        return smallest;
+    }
+}
+
+//using spread operator =>
+class SmallestIntegerFinder2 {
+    findSmallestInt(args) {
+        return Math.min(...args)
+    }
+}
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
