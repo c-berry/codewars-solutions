@@ -630,3 +630,41 @@ class SmallestIntegerFinder2 {
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+//finds the summation of every number from 1 to num. The number will always be a positive integer greater than 0
+var summation = function (num) {
+    let sum = 0;
+    for (let i = 0; i <= num; i++) {
+        sum += i;
+    }
+    return sum;
+}
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+function numberToString(num) {
+    return num.toString();
+}
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+//function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out
+function filter_list(arr) {
+    let onlyNums = [];
+    for (let i = 0; i < arr.length; i++){
+        if (typeof arr[i] === "number") {
+            onlyNums.push(arr[i]);
+        }
+    }
+    return onlyNums;
+}
+
+//using filter =>
+function filter_list2(l) {
+    return l.filter(function(v) {return typeof v == 'number'})
+}
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
