@@ -688,3 +688,34 @@ function findOdd(numbers) {
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+//given an array of numbers, sort the odd numbers in ascending order while leaving the even numbers at their original positions =>
+function sortArray(array) {
+    //create array of odd nums sorted in ascending order:
+    const sortedOddArr = array
+        //retrieve only odd numbers:
+        .filter(num => num % 2 !== 0)
+        //sort in ascending order:
+        .sort((a, b) => a - b);
+    //create new array to hold final sort:
+    let newArr = [];
+    //create value to track index of odd number array we just sorted:
+    let index = 0;
+    //loop thru original array to sort our final returned array:
+    for (let i = 0; i < array.length; i++) {
+        //if number in sequence is odd pull number from our odd/sorted array and push to our final array:
+        if (array[i] % 2 !== 0) {
+            newArr.push(sortedOddArr[index]);
+            //increment the value that is tracking the current index in the odd/sorted array:
+            index++;
+        } else {
+            //if number is even simply add it in sequence to our new array:
+            newArr.push(array[i]);
+        }
+    }
+    return newArr;
+}
+// console.log(sortArray([9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -2, -1]));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
