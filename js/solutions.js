@@ -719,3 +719,62 @@ function sortArray(array) {
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+// function that accepts an integer n and a string s as parameters, and returns a string of s repeated exactly n times =>
+function repeatStr (n, s) {
+    //create new string:
+    let newStr = "";
+    //append to our new string (n) times:
+    for (let i = 0; i < n; i++){
+        newStr += s;
+    }
+    return newStr;
+}
+// console.log(repeatStr(5), "Yo");
+
+//using repeat method:
+function repeatStr2 (n, s) {
+    return s.repeat(n);
+}
+// console.log(repeatStr2(5), "Yo");
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+// Take 2 flowers and ff one of the flowers has an even number of petals and the other has an odd number of petals return true =>
+function lovefunc(flower1, flower2){
+    if (flower1 % 2 === 0 && flower2 % 2 !== 0) {
+        return true;
+    }
+    return flower1 % 2 !== 0 && flower2 % 2 === 0;
+}
+// console.log(lovefunc(5, 6));
+// console.log(lovefunc(6, 6));
+
+//simplest solution:
+function lovefunc2(flower1, flower2){
+    return flower1 % 2 !== flower2 % 2;
+}
+// console.log(lovefunc2(5, 6));
+// console.log(lovefunc2(6, 6));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+// Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive. The string can contain any char =>
+function XO(str) {
+    let x = 0;
+    let o = 0;
+    for (let i = 0; i < str.length; i++) {
+        if (str[i].toLowerCase() === "x") {
+            x++;
+        }
+        if (str[i].toLowerCase() === "o") {
+            o++
+        }
+    }
+    return x === o;
+}
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
