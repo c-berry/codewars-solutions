@@ -678,7 +678,7 @@ function findOdd(numbers) {
                 count++;
             }
         }
-        if(count % 2 !== 0 ){
+        if(count % 2 !== 0){
             return numbers[i];
         }
     }
@@ -807,4 +807,9 @@ function highAndLow(numbers){
     let lowest = Math.min(...numArr);
     return highest + " " + lowest;
 }
-console.log(highAndLow("4 1 2 3 4 2 8"));
+// console.log(highAndLow("4 1 2 3 4 2 8"));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+
