@@ -508,10 +508,10 @@ function duplicateCount(text){
     //create new array to hold duplicate chars
     let textChars = [];
     //loop thru chars comparing first instance of a char to the last index of that char
-    for (let i = 0; i < textArr.length; i++){
+    for (let i = 0; i < textArr.length; i++) {
         if (textArr.indexOf(textArr[i]) !== textArr.lastIndexOf(textArr[i])) {
             //if char is repeated and not already in our new array of duplicates, add it to new array
-            if (!textChars.includes(textArr[i])){
+            if (!textChars.includes(textArr[i])) {
                 textChars.push(textArr[i]);
             }
         }
@@ -812,4 +812,42 @@ function highAndLow(numbers){
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 
+// function which answers the question "Are you playing banjo?".
+// If your name starts with the letter "R" or lower case "r", you are playing banjo =>
+function areYouPlayingBanjo(name) {
+    if (name[0].toLowerCase() === "r") {
+        return name + " plays banjo";
+    } else {
+        return name + " does not play banjo";
+    }
+}
 
+// Using turnary:
+function areYouPlayingBanjo2(name) {
+    return name + (name[0].toLowerCase() === 'r' ? ' plays' : ' does not play') + " banjo";
+}
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+// An isogram is a word that has no repeating letters, consecutive or non-consecutive.
+// Write a function that determines whether a string that contains only letters is an isogram. Assume the empty string is an isogram. Ignore letter case. =>
+function isIsogram(str){
+    let strArr = str.toLowerCase().split("");
+   for (let i = 0; i < str.length; i++) {
+       if (strArr.indexOf(str[i]) !== strArr.lastIndexOf(str[i])) {
+           return false;
+       }
+   }
+   return true;
+}
+// console.log(isIsogram("hello"));
+
+// using Set =>
+function isIsogram2(str){
+    return new Set(str.toUpperCase()).size === str.length;
+}
+// console.log(isIsogram2("hello"));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
