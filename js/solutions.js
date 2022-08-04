@@ -851,3 +851,38 @@ function isIsogram2(str){
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+// You live in the city of Cartesia where all roads are laid out in a perfect grid. You arrived ten minutes too early to an appointment, so you decided to take the opportunity to go for a short walk. The city provides its citizens with a Walk Generating App on their phones -- everytime you press the button it sends you an array of one-letter strings representing directions to walk (eg. ['n', 's', 'w', 'e']). You always walk only a single block for each letter (direction) and you know it takes you one minute to traverse one city block, so create a function that will return true if the walk the app gives you will take you exactly ten minutes (you don't want to be early or late!) and will, of course, return you to your starting point. Return false otherwise. =>
+function isValidWalk(walk) {
+    //Store values of north/south and east/west:
+    let ns = 0;
+    let ew = 0;
+
+    //check if walk will be 10 minutes and loop thru array of directions:
+    if (walk.length === 10) {
+        for (let i = 0; i < walk.length; i++) {
+            // Since we want to return to where we start n and s will cancel each other out,
+            // therefore they will represent +1 and -1:
+            if (walk[i] === "n") {
+                ns += 1;
+            }
+            if (walk[i] === "s") {
+                ns -= 1;
+            }
+            // Same logic is applied to east and west:
+            if (walk[i] === "e") {
+                ew += 1;
+            }
+            if (walk[i] === "w") {
+                ew -= 1;
+            }
+        }
+        // If both ns and ew equal zero then our directions will eventually lead back to where we started:
+        return ns === 0 && ew === 0;
+    } else {
+        // If walk array length is not exactly 10 it does not fit our requirements:
+        return false;
+    }
+}
+// console.log(isValidWalk(['n','s','n','s','n','s','n','s','n','s']));
+// console.log(isValidWalk(['w']));
