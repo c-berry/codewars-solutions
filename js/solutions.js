@@ -886,3 +886,25 @@ function isValidWalk(walk) {
 }
 // console.log(isValidWalk(['n','s','n','s','n','s','n','s','n','s']));
 // console.log(isValidWalk(['w']));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+// Return array with names only containing 4 chars =>
+function friend(friends){
+    let arr = [];
+    for (let i = 0; i < friends.length; i++) {
+        if (friends[i].length === 4) {
+            arr.push(friends[i]);
+        }
+    }
+    return arr;
+}
+
+// using filter:
+function friend2(friends){
+    return friends.filter(n => n.length === 4)
+}
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
