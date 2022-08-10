@@ -922,3 +922,25 @@ console.log(getMiddle("test"));
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+// Count vowels in string =>
+function getCount(str) {
+    const vowels = ["a", "e", "i", "o", "u"]
+    let count = 0;
+    for(let i = 0; i < str.length; i++) {
+        if (vowels.includes(str[i])) {
+            count++;
+        }
+    }
+    return count;
+}
+// console.log(getCount("abracadabra"));
+
+// Using regex =>
+function getCount2(str) {
+    return (str.match(/[aeiou]/ig)||[]).length;
+}
+// console.log(getCount2("abracadabra"));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
