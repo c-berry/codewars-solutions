@@ -944,3 +944,17 @@ function getCount2(str) {
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+// Return true if yourPoints are greater than the classPoints average score =>
+function betterThanAverage(classPoints, yourPoints) {
+    let sum = 0;
+    for (let i = 0; i < classPoints.length; i++) {
+        sum += classPoints[i];
+    }
+    return sum / classPoints.length < yourPoints;
+}
+// console.log(betterThanAverage([80, 81, 90, 91], 75));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
