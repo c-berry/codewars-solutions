@@ -971,3 +971,27 @@ function findNextSquare(sq) {
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+// Accumulating function:
+// Return for "ZpglnRxqenU" should be "Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu"
+function accum(s) {
+    let newS = s.toLowerCase();
+    let count = 0;
+    let result = "";
+    for (let i = 0; i < s.length; i++) {
+        result += newS[i].toUpperCase();
+        count++;
+        for (let j = 1; j < count; j++) {
+            result += newS[i];
+        }
+        if (i !== (s.length - 1)) {
+            result += "-";
+        }
+    }
+    return result;
+}
+// console.log(accum("NyffsGeyylB"));
+// console.log(accum("MjtkuBovqrU"));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
