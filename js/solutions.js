@@ -918,7 +918,7 @@ function getMiddle(s) {
     }
     return result;
 }
-console.log(getMiddle("test"));
+// console.log(getMiddle("test"));
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
@@ -995,3 +995,40 @@ function accum(s) {
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+// You were camping with your friends far away from home, but when it's time to go back, you realize that your fuel is running out and the nearest pump is 50 miles away! You know that on average, your car runs on about 25 miles per gallon. There are 2 gallons left.
+// Considering these factors, write a function that tells you if it is possible to get to the pump or not.
+// Function should return true if it is possible and false if not. =>
+const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
+    return distanceToPump <= (mpg * fuelLeft);
+};
+// console.log(zeroFuel(50, 25, 2));
+// console.log(zeroFuel(100, 50, 1));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+// ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits.
+// If the function is passed a valid PIN string, return true, else return false. =>
+// function validatePIN (pin) {
+//     return (pin.length === 4 || pin.length === 6)
+//         && typeof pin === "string"
+//         && Number.isInteger(+pin);
+// }
+
+function validatePIN(pin) {
+    for(let i = 0; i < pin.length; i++) {
+        if (!Number.isInteger(+pin[i])) {
+            return false;
+        }
+    }
+    if (/\s/.test(pin)) {
+        return false;
+    }
+    return (pin.length === 4 || pin.length === 6);
+}
+// console.log(validatePIN("123 "));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
