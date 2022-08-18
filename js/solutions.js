@@ -1017,14 +1017,17 @@ const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
 // }
 
 function validatePIN(pin) {
+    // Checks if any chars are not a number type:
     for(let i = 0; i < pin.length; i++) {
         if (!Number.isInteger(+pin[i])) {
             return false;
         }
     }
+    // Checks for whitespace:
     if (/\s/.test(pin)) {
         return false;
     }
+    // Checks for correct length:
     return (pin.length === 4 || pin.length === 6);
 }
 // console.log(validatePIN("123 "));
@@ -1032,3 +1035,30 @@ function validatePIN(pin) {
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 
+// Write a function findNeedle() that takes an array full of junk but containing one "needle"
+// After your function finds the needle it should return a message (as a string) that says: "found the needle at position " plus the index it found the needle =>
+function findNeedle(haystack) {
+    for (let i = 0; i < haystack.length; i++) {
+        if (haystack[i] === "needle") {
+            return "found the needle at position " + i;
+        }
+    }
+}
+// console.log(findNeedle(['3', '123124234', undefined, 'needle', 'world', 'hay', 2, '3', true, false]));
+
+// Using built in method:
+function findNeedle2(haystack) {
+    return "found the needle at position " + haystack.indexOf("needle");
+}
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+// function that returns both the minimum and maximum number of the given list/array. =>
+function minMax(arr){
+    // Spread operator and Math methods do the work:
+    return [Math.min(...arr), Math.max(...arr)];
+}
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
