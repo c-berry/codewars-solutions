@@ -1305,3 +1305,129 @@ function stray(numbers) {
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 
+// This time we want to write calculations using functions and get the results. Let's have a look at some examples:
+// seven(times(five())); // must return 35
+// four(plus(nine())); // must return 13
+// eight(minus(three())); // must return 5
+// six(dividedBy(two())); // must return 3
+// Requirements:
+// There must be a function for each number from 0 ("zero") to 9 ("nine")
+// There must be a function for each of the following mathematical operations: plus, minus, times, dividedBy
+// Each calculation consist of exactly one operation and two numbers
+// The most outer function represents the left operand, the most inner function represents the right operand
+// Division should be integer division. For example, this should return 2, not 2.666666...: =>
+
+// using regular fn:
+function zero(op) {
+    if (op) {
+        return op(0);
+    } else {
+        return 0;
+    }
+}
+function one(op) {
+    if (op) {
+        return op();
+    } else {
+        return 1;
+    }
+}
+function two(op) {
+    if (op) {
+        return op(2);
+    } else {
+        return 2;
+    }
+}
+function three(op) {
+    if (op) {
+        return op(3);
+    } else {
+        return 3;
+    }
+}
+function four(op) {
+    if (op) {
+        return op(4);
+    } else {
+        return 4;
+    }
+}
+function five(op) {
+    if (op) {
+        return op(5);
+    } else {
+        return 5;
+    }
+}
+function six(op) {
+    if (op) {
+        return op(6);
+    } else {
+        return 6;
+    }
+}
+function seven(op) {
+    if (op) {
+        return op(7);
+    } else {
+        return 7;
+    }
+}
+function eight(op) {
+    if (op) {
+        return op(8);
+    } else {
+        return 8;
+    }
+}
+function nine(op) {
+    if (op) {
+        return op(9);
+    } else {
+        return 9;
+    }
+}
+
+function plus(num) {
+    return function(otherNum){
+       return Math.floor(otherNum + number);
+    }
+}
+function minus(num) {
+    return function(otherNum){
+        return Math.floor(otherNum - num);
+    }
+}
+function times(num) {
+    return function(otherNum) {
+        return Math.floor(otherNum * num);
+    }
+}
+function dividedBy(num) {
+    return function(otherNum) {
+        return Math.floor(otherNum / num);
+    }
+}
+
+// Using es6:
+// const zero = (operation) => !operation ? 0 : operation(0);
+// const one = (operation) => !operation ? 1 : operation(1);
+// const two = (operation) => !operation ? 2 : operation(2);
+// const three = (operation) => !operation ? 3 : operation(3);
+// const four = (operation) => !operation ? 4 : operation(4);
+// const five = (operation) => !operation ? 5 : operation(5);
+// const six = (operation) => !operation ? 6 : operation(6);
+// const seven = (operation) => !operation ? 7 : operation(7);
+// const eight = (operation) => !operation ? 8 : operation(8);
+// const nine = (operation) => !operation ? 9 : operation(9);
+//
+// const plus = (number) => (other_number) => Math.floor(other_number + number);
+// const minus = (number) => (other_number) => Math.floor(other_number - number);
+// const times = (number) => (other_number) => Math.floor(other_number * number);
+// const dividedBy = (number) => (other_number) => Math.floor(other_number / number);
+
+// console.log(five(times(five())));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
