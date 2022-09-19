@@ -1431,3 +1431,21 @@ function dividedBy(num) {
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+// In this kata you are required to, given a string, replace every letter with its position in the alphabet.
+// If anything in the text isn't a letter, ignore it and don't return it. =>
+function alphabetPosition(text) {
+    let abc = "abcdefghijklmnopqrstuvwxyz";
+    let newText = "";
+    let char = "";
+    for (let i = 0; i < text.length; i++) {
+        char = text[i].toLowerCase();
+        if (abc.indexOf(char) > -1) {
+            newText += abc.indexOf(char) + 1 + " ";
+        }
+    }
+    return newText.substring(0, newText.length - 1);
+}
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
