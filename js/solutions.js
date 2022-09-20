@@ -1449,3 +1449,19 @@ function alphabetPosition(text) {
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+// Remove all exclamation marks from sentence but ensure a exclamation mark at the end of string. =>
+function removeExclamationMarks(s) {
+    let newS = "";
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] !== "!") {
+            newS += s[i];
+        }
+    }
+    return newS;
+}
+console.log(removeExclamationMarks("Hello!?"));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
