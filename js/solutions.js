@@ -1513,3 +1513,21 @@ function arithmetic(a, b, operator){
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 
+// Given an integer as input, can you round it to the next (meaning, "greater than or equal") multiple of 5?
+function roundToNext5(n) {
+    for (let i = 0; i < 5; i++) {
+        if (n % 5 === 0) {
+            return n;
+        }
+        if ((n + i) % 5 === 0) {
+            return n + i;
+        }
+    }
+}
+console.log(roundToNext5(5));
+console.log(roundToNext5(4));
+console.log(roundToNext5(0));
+console.log(roundToNext5(1));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
