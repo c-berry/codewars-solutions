@@ -1524,10 +1524,10 @@ function roundToNext5(n) {
         }
     }
 }
-console.log(roundToNext5(5));
-console.log(roundToNext5(4));
-console.log(roundToNext5(0));
-console.log(roundToNext5(1));
+// console.log(roundToNext5(5));
+// console.log(roundToNext5(4));
+// console.log(roundToNext5(0));
+// console.log(roundToNext5(1));
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
@@ -1546,8 +1546,26 @@ function printerError(s) {
     }
     return count + "/" + s.length;
 }
-console.log(printerError("aaabbbbhaijjjm"));
-console.log(printerError("aaaxbbbbyyhwawiwjjjwwm"));
+// console.log(printerError("aaabbbbhaijjjm"));
+// console.log(printerError("aaaxbbbbyyhwawiwjjjwwm"));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+// Сalculate how many years ago the father was twice as old as his son (or in how many years he will be twice as old). The answer is always greater or equal to 0, no matter if it was in the past or it is in the future.
+
+function twiceAsOld(dadYearsOld, sonYearsOld) {
+    let twice = dadYearsOld - sonYearsOld * 2;
+    if (twice < 0) {
+        return twice * (-1);
+    } else {
+        return twice;
+    }
+
+//   return twice < 0 ? twice * (-1) : twice;
+}
+// console.log(twiceAsOld(36,7));
+// console.log(twiceAsOld(55,30));
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
