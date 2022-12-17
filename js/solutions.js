@@ -1561,11 +1561,23 @@ function twiceAsOld(dadYearsOld, sonYearsOld) {
     } else {
         return twice;
     }
-
-//   return twice < 0 ? twice * (-1) : twice;
 }
 // console.log(twiceAsOld(36,7));
 // console.log(twiceAsOld(55,30));
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+
+// function that takes two integers (a, b, where a < b) and return an array of all integers between the input parameters, including them. =>
+function between(a, b) {
+    let arr = [];
+    for (let i = a; i <= b; i++) {
+        arr.push(i);
+    }
+    return arr;
+}
+// console.log(between(1, 5));
+// console.log(between(5, 20));
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
